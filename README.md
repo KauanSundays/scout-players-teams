@@ -14,31 +14,30 @@ Faculdades podem cadastrar suas necessidades específicas de jogadores por posi�
 <h2>Busca e Filtros Avançados: </h2>
 Sistema de busca e filtros avançados para encontrar jogadores com base em critérios específicos.
 
-<h2>Avaliação de Jogadores: <h2>
+<h2>Avaliação de Jogadores: </h2>
 Avaliadores podem registrar informações detalhadas sobre os jogadores avaliados, incluindo habilidades técnicas, físicas e mentais, critérios acadêmicos, estado que nasceu.
 
-Tecnologias Utilizadas
-Laravel: Framework PHP para o desenvolvimento de aplicativos web.
+<h2>Tecnologias Utilizadas</h2>
+<li>Laravel: Framework PHP para o desenvolvimento de aplicativos web.</li>
 
-Bootstrap: Framework front-end para desenvolvimento ágil e responsivo de interfaces.
+<li>Bootstrap:Framework front-end para desenvolvimento ágil e responsivo de interfaces.</li>
 
-MySQL: Banco de dados relacional para armazenamento de dados.
+<li>MySQL: Banco de dados relacional para armazenamento de dados.</li>
 
-Pré-requisitos
-PHP >= 8.1
-Composer
-MySQL
-Instalação
-Clone este repositório: git clone https://github.com/seu-usuario/nome-do-repositorio.git
-Instale as dependências do Composer: composer install
-Copie o arquivo .env.example para .env e configure as variáveis de ambiente, como as credenciais do banco de dados.
-Gere uma nova chave de aplicativo: php artisan key:generate
-Execute as migrações do banco de dados: php artisan migrate
-Inicie o servidor: php artisan serve
-Contribuição
-Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
+<h2>Pré-requisitos</h2>
+<li>PHP >= 8.1</li>
+<li>Composer</li>
+<li>MySQL</li>
 
-Licença
-Este projeto está licenciado sob a MIT License.
+
+<h2>Instalação</h2>
+<li>Clone este repositório: git clone https://github.com/seu-usuario/nome-do-repositorio.git</li>
+<li>Instale as dependências do Composer: composer install</li>
+<li>Copie o arquivo .env.example para .env e configure as variáveis de ambiente, como as credenciais do banco de dados.</li>
+<li>Gere uma nova chave de aplicativo: php artisan key:generate</li>
+<li>Execute as migrações do banco de dados: php artisan migrate</li>
+<li>Inicie o servidor: php artisan serve</li>]
+
+
 
 Este README fornece uma visão geral do projeto, instruções de instalação e informações sobre como contribuir e a licença do projeto. Certifique-se de adaptá-lo conforme necessário para o seu projeto específico.
