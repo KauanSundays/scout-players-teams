@@ -45,12 +45,12 @@
 
         .destacado {
             font-size: 1.5rem; /* Tamanho maior para as palavras destacadas */
-            color: #ff6b6b; /* Cor para a palavra "Faculdade" */
+            color: black; /* Cor para a palavra "Faculdade" */
         }
 
         .destacado-avaliador {
             font-size: 1.5rem; /* Tamanho maior para as palavras destacadas */
-            color: #6ab04c; /* Cor para a palavra "Avaliador" */
+            color: black; /* Cor para a palavra "Avaliador" */
         }
 
     </style>

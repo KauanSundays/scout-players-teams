@@ -10,7 +10,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
+use Illuminate\Validation\Rule; // Importe Rule corretamente
+use Illuminate\Validation\Rules; // Importe Rules corretamente
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 
@@ -45,27 +46,25 @@ class RegisteredUserController extends Controller
             'nome' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'user_type' => ['required', 'string'], // Validação para o campo de tipo de usuário
+            'user_type' => ['required', 'string', Rule::in(['faculdade', 'avaliador'])], // Validar o tipo de usuário
         ]);
 
-        $user = DB::transaction(function () use ($request) {
-            $userType = $request->user_type;
-            $isFaculdade = $userType === 'faculdade';
+        // Definir as colunas de faculdade e avaliador com base no tipo de usuário
+        $faculdade = $request->user_type === 'faculdade';
+        $avaliador = $request->user_type === 'avaliador';
 
-            $user = User::create([
-                'nome' => $request->nome,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-                'avaliador' => !$isFaculdade, // Define avaliador como false se for faculdade, caso contrário, true
-                'faculdade' => $isFaculdade, // Define faculdade como true se for faculdade, caso contrário, false
-            ]);
+        // Criar o usuário com os valores adequados para as colunas faculdade e avaliador
+        $user = User::create([
+            'nome' => $request->nome,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'faculdade' => $faculdade,
+            'avaliador' => $avaliador,
+        ]);
 
-            event(new Registered($user));
+        event(new Registered($user));
 
-            Auth::login($user);
-
-            return $user;
-        });
+        Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
     }

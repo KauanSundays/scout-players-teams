@@ -39,17 +39,8 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <!-- User Type -->
-        <div class="mt-4">
-            <x-input-label for="user_type" :value="__('User Type')" />
-            <select id="user_type" name="user_type" class="block mt-1 w-full" required>
-                <option value="">Select User Type</option>
-                <option value="faculdade">faculdade</option>
-                <option value="avaliador">avaliador</option>
-            </select>
-            <x-input-error :messages="$errors->get('user_type')" class="mt-2" />
-        </div>
-
+        <!-- Hidden input for user_type -->
+        <input type="hidden" name="user_type" value="faculdade">
 
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
