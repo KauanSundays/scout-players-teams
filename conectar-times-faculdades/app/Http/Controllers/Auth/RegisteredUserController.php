@@ -31,20 +31,27 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'nome' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'user_type' => ['required', 'string'], // Validação para o campo de tipo de usuário
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        $user = DB::transaction(function () use ($request) {
+            $user = User::create([
+                'nome' => $request->nome,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'avaliador' => $request->user_type === 'avaliador', // Define avaliador como true se a opção for 'avaliador'
+                'faculdade' => $request->user_type === 'faculdade', // Define faculdade como true se a opção for 'faculdade'
+            ]);
 
-        event(new Registered($user));
+            event(new Registered($user));
 
-        Auth::login($user);
+            Auth::login($user);
+
+            return $user;
+        });
 
         return redirect(RouteServiceProvider::HOME);
     }
