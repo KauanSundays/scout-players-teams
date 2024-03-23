@@ -8,8 +8,20 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
+                <div class="p-6">
+                    @if(auth()->user()->faculdade)
+                        <p class="text-lg text-gray-900 dark:text-gray-100">
+                            {{ __("Seja a melhor faculdade, procure atletas!") }}
+                        </p>
+                    @elseif(auth()->user()->avaliador)
+                        <p class="text-lg text-gray-900 dark:text-gray-100">
+                            {{ __("Avalie os melhores atletas e descubra talentos!") }}
+                        </p>
+                    @else
+                        <p class="text-lg text-gray-900 dark:text-gray-100">
+                            {{ __("Bem-vindo ao dashboard!") }}
+                        </p>
+                    @endif
                 </div>
             </div>
         </div>
