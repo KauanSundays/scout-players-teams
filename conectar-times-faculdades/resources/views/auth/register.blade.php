@@ -44,7 +44,7 @@
             <x-input-label for="user_type" :value="__('User Type')" />
             <select id="user_type" name="user_type" class="block mt-1 w-full" required>
                 <option value="">Select User Type</option>
-                <option value="facudlade">faculdade</option>
+                <option value="faculdade">faculdade</option>
                 <option value="avaliador">avaliador</option>
             </select>
             <x-input-error :messages="$errors->get('user_type')" class="mt-2" />

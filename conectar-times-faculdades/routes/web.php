@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\RegisteredUserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+Route::get('/register/faculdade', [RegisteredUserController::class, 'createFaculdade'])->name('register.faculdade');
+Route::get('/register/avaliador', [RegisteredUserController::class, 'createAvaliador'])->name('register.avaliador');
+
+require __DIR__ . '/auth.php';

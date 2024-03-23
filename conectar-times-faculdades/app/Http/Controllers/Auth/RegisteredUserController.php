@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\DB;
 
 class RegisteredUserController extends Controller
 {
@@ -38,12 +39,15 @@ class RegisteredUserController extends Controller
         ]);
 
         $user = DB::transaction(function () use ($request) {
+            $userType = $request->user_type;
+            $isFaculdade = $userType === 'faculdade';
+
             $user = User::create([
                 'nome' => $request->nome,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
-                'avaliador' => $request->user_type === 'avaliador', // Define avaliador como true se a opção for 'avaliador'
-                'faculdade' => $request->user_type === 'faculdade', // Define faculdade como true se a opção for 'faculdade'
+                'avaliador' => !$isFaculdade, // Define avaliador como false se for faculdade, caso contrário, true
+                'faculdade' => $isFaculdade, // Define faculdade como true se for faculdade, caso contrário, false
             ]);
 
             event(new Registered($user));
