@@ -24,6 +24,16 @@ class RegisteredUserController extends Controller
         return view('auth.register');
     }
 
+    public function createFaculdade(): View
+    {
+        return view('auth.register_faculdade');
+    }
+
+    public function createAvaliador(): View
+    {
+        return view('auth.register_avaliador');
+    }
+
     /**
      * Handle an incoming registration request.
      *
