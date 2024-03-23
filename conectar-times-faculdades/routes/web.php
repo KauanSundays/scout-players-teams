@@ -30,6 +30,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::view('/draft', 'draft')->name('draft');
+
+
 Route::get('/register/faculdade', [RegisteredUserController::class, 'createFaculdade'])->name('register.faculdade');
 Route::get('/register/avaliador', [RegisteredUserController::class, 'createAvaliador'])->name('register.avaliador');
 
