@@ -17,6 +17,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            font-size: 1.2rem; /* Aumenta o tamanho da fonte */
         }
 
         .card {
@@ -24,6 +25,7 @@
             border-radius: 10px;
             box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            font-size: inherit; /* Herda o tamanho da fonte do body */
         }
 
         .card:hover {
@@ -41,6 +43,16 @@
             color: white;
         }
 
+        .destacado {
+            font-size: 1.5rem; /* Tamanho maior para as palavras destacadas */
+            color: #ff6b6b; /* Cor para a palavra "Faculdade" */
+        }
+
+        .destacado-avaliador {
+            font-size: 1.5rem; /* Tamanho maior para as palavras destacadas */
+            color: #6ab04c; /* Cor para a palavra "Avaliador" */
+        }
+
     </style>
 </head>
 
@@ -50,7 +62,7 @@
             <div class="col-md-6">
                 <div class="card mb-4 card-faculdade">
                     <div class="card-body text-center">
-                        <h5 class="card-title">Criar Perfil de Faculdade</h5>
+                        <h5 class="card-title">Criar Perfil de <span class="destacado">Faculdade</span></h5>
                         <p class="card-text">Crie um perfil se você representa uma faculdade.</p>
                         <a href="{{ route('register.faculdade') }}" class="btn btn-primary">Criar Perfil</a>
                     </div>
@@ -59,7 +71,7 @@
             <div class="col-md-6">
                 <div class="card card-avaliador">
                     <div class="card-body text-center">
-                        <h5 class="card-title">Criar Perfil de Avaliador</h5>
+                        <h5 class="card-title">Criar Perfil de <span class="destacado-avaliador">Avaliador</span></h5>
                         <p class="card-text">Crie um perfil se você deseja ser um avaliador.</p>
                         <a href="{{ route('register.avaliador') }}" class="btn btn-success">Criar Perfil</a>
                     </div>
