@@ -47,8 +47,8 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'user_type' => ['required', 'string', Rule::in(['faculdade', 'avaliador'])], // Validar o tipo de usuário
-            'estado' => ['nullable', 'string', 'max:255'], // Validar o estado
-            'cidade' => ['nullable', 'string', 'max:255'], // Validar a cidade
+            'estado' => ['required', 'string', 'max:255'], // Validar o estado
+            'cidade' => ['required', 'string', 'max:255'], // Validar a cidade
         ]);
 
         // Definir as colunas de faculdade e avaliador com base no tipo de usuário

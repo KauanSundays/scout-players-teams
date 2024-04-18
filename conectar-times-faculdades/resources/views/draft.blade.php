@@ -65,6 +65,8 @@
                         <h5 class="card-title">Criar Perfil de <span class="destacado">Faculdade</span></h5>
                         <p class="card-text">Crie um perfil se você representa uma faculdade.</p>
                         <a href="{{ route('register.faculdade') }}" class="btn btn-primary">Criar Perfil</a>
+                        <div></div>
+                        <a href="{{ route('login') }}" class="btn btn-primary">Login de Faculdade</a>
                     </div>
                 </div>
             </div>
@@ -74,6 +76,8 @@
                         <h5 class="card-title">Criar Perfil de <span class="destacado-avaliador">Avaliador</span></h5>
                         <p class="card-text">Crie um perfil se você deseja ser um avaliador.</p>
                         <a href="{{ route('register.avaliador') }}" class="btn btn-success">Criar Perfil</a>
+                        <div></div>
+                        <a href="{{ route('login') }}" class="btn btn-success">Login de Avaliador</a>
                     </div>
                 </div>
             </div>

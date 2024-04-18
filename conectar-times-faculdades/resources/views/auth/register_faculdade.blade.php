@@ -44,16 +44,16 @@
 
         <!-- Estado -->
         <div>
-            <x-input-label for="Estado" :value="__('Estado de Localização da Instituição')" />
-            <x-text-input id="Estado" class="block mt-1 w-full" type="text" name="Estado" :value="old('Estado')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('Estado')" class="mt-2" />
+            <x-input-label for="estado" :value="__('Estado de Localização da Instituição')" />
+            <x-text-input id="estado" class="block mt-1 w-full" type="text" name="estado" :value="old('estado')" required autofocus autocomplete="name" />
+            <x-input-error :messages="$errors->get('estado')" class="mt-2" />
         </div>
 
         <!-- Cidade -->
         <div>
-            <x-input-label for="Cidade" :value="__('Cidade de Localização da Instituição')" />
-            <x-text-input id="Cidade" class="block mt-1 w-full" type="text" name="Cidade" :value="old('Cidade')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('Cidade')" class="mt-2" />
+            <x-input-label for="cidade" :value="__('Cidade de Localização da Instituição')" />
+            <x-text-input id="cidade" class="block mt-1 w-full" type="text" name="cidade" :value="old('cidade')" required autofocus autocomplete="name" />
+            <x-input-error :messages="$errors->get('cidade')" class="mt-2" />
         </div>
 
         <div class="flex items-center justify-end mt-4">

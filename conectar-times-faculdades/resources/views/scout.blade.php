@@ -12,7 +12,7 @@
 <!-- partial:index.partial.html -->
 <div class="screen-1">
     <div style="text-align: center;">
-        <img src="{{ asset('images/ou.png') }}" alt="Imagem ou" style="max-width: 30vh; min-width: 15vh; width: 100%; height: auto;">
+        <img src="https://clubsportrosario.com/wp-content/uploads/2020/01/IMG_2546-1024x683-1.jpg" alt="Imagem ou" style="max-width: 30vh; min-width: 15vh; width: 100%; height: auto;">
     </div>
     
     <form method="POST" action="{{ route('login') }}">
@@ -65,7 +65,7 @@
           <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
 
               <a href="{{ route('draft') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                Crie seu Usuario
+                Crie uma Conta
             </a>
           
       @endauth
