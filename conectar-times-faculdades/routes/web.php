@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\PositionController;
 
 
 /*
@@ -20,9 +21,8 @@ Route::get('/', function () {
     return view('draft');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [PositionController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -35,5 +35,6 @@ Route::view('/draft', 'draft')->name('draft');
 
 Route::get('/register/faculdade', [RegisteredUserController::class, 'createFaculdade'])->name('register.faculdade');
 Route::get('/register/avaliador', [RegisteredUserController::class, 'createAvaliador'])->name('register.avaliador');
+Route::post('/update-position', [PositionController::class, 'updatePosition'])->name('update_position');
 
 require __DIR__ . '/auth.php';
