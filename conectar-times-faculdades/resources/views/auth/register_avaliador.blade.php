@@ -3,10 +3,7 @@
         @csrf
 
         {{-- Picture --}}
-        <x-picture-input>
-            
-        </x-picture-input>
-
+        <x-picture-input />
 
         <!-- Name -->
         <div>
