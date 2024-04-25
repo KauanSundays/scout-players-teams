@@ -13,7 +13,7 @@
                         <p class="text-lg text-gray-900 dark:text-gray-100">
                             {{ __("Seja a melhor faculdade, procure atletas!") }}
                         </p>
-                        <p class="text-lg text-red-1000 white:text-gray-100">
+                        <p class="text-lg text-gray-900 dark:text-gray-100">
                             Necessidades atuais:
                         </p>
                     @elseif(auth()->user()->avaliador)
@@ -27,15 +27,15 @@
                     @endif
 
                     @if(auth()->user()->faculdade && !is_null(auth()->user()->position_id))
-    @php
-        $position = \App\Models\Position::find(auth()->user()->position_id);
-    @endphp
-    @if($position)
-        <p class="text-lg text-gray-900 dark:text-gray-100">
-            Necessidade atual da faculdade: {{ $position->nome }}
-        </p>
-    @endif
-@endif
+                        @php
+                            $position = \App\Models\Position::find(auth()->user()->position_id);
+                        @endphp
+                        @if($position)
+                            <p class="text-lg text-gray-900 dark:text-gray-100">
+                                Necessidade atual da faculdade: {{ $position->nome }}
+                            </p>
+                        @endif
+                    @endif
 
 
 
@@ -43,7 +43,7 @@
                     @if(auth()->user()->faculdade && is_null(auth()->user()->position_id))
                     <form method="POST" action="{{ route('update_position') }}">
                         @csrf
-                        <label for="position">Escolha sua necessidade:</label>
+                        <label for="position" class="text-lg text-gray-900 dark:text-gray-100">Escolha sua necessidade:</label>
                         <select name="position" id="position">
                             @foreach($positions as $position)
                                 <option value="{{ $position->id }}">{{ $position->nome }}</option>
