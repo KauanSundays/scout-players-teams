@@ -48,6 +48,13 @@ class PositionController extends Controller
             $user->save();
             return redirect()->route('dashboard')->with('success', 'Necessidade atualizada com sucesso!');
         }
+
+        if ($user->avaliador && is_null($user->position_id)) {
+            $user->position_id = $request->position;
+            $user->save();
+            return redirect()->route('dashboard')->with('success', 'Necessidade atualizada com sucesso!');
+        }
+        
         return redirect()->route('dashboard')->with('error', 'Erro ao atualizar a necessidade.');
     }
 

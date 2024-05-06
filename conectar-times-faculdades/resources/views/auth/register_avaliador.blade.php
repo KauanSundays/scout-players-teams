@@ -2,9 +2,6 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
-        {{-- Picture --}}
-        <x-picture-input />
-
         <!-- Name -->
         <div>
             <x-input-label for="nome" :value="__('Nome do Avaliador')" />

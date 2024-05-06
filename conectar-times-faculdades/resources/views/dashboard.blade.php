@@ -19,6 +19,9 @@
                     @elseif(auth()->user()->avaliador)
                         <p class="text-lg text-gray-900 dark:text-gray-100">
                             {{ __("Avalie os melhores atletas e descubra talentos!") }}
+                            @if(auth()->user()->estado)
+                            @endif
+
                         </p>
                     @else
                         <p class="text-lg text-gray-900 dark:text-gray-100">
@@ -37,9 +40,6 @@
                         @endif
                     @endif
 
-
-
-
                     @if(auth()->user()->faculdade && is_null(auth()->user()->position_id))
                     <form method="POST" action="{{ route('update_position') }}">
                         @csrf
@@ -54,6 +54,32 @@
                         </button>
                      </form>
                     @endif
+
+                    @if(auth()->user()->avaliador && is_null(auth()->user()->position_id))
+                    <form method="POST" action="{{ route('update_position') }}">
+                        @csrf
+                        <label for="position" class="text-lg text-gray-900 dark:text-gray-100">Escolha posição de jogador que você analisa:</label>
+                        <select name="position" id="position">
+                            @foreach($positions as $position)
+                                <option value="{{ $position->id }}">{{ $position->nome }}</option>
+                            @endforeach
+                        </select>
+                        <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                            Salvar
+                        </button>
+                     </form>
+                    @endif
+
+                    @if(auth()->user()->avaliador && !is_null(auth()->user()->position_id))
+                    @php
+                        $position = \App\Models\Position::find(auth()->user()->position_id);
+                    @endphp
+                    @if($position)
+                        <p class="text-lg text-gray-900 dark:text-gray-100">
+                            Posição Especial do Avaliador: {{ $position->nome }}
+                        </p>
+                    @endif
+                @endif
 
                 </div>
             </div>
